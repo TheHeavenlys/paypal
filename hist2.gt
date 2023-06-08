@@ -1,0 +1,285 @@
+
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Tue Jun  6 09:50:17 2023 from 47.24.104.77
+[ec2-user@demo ~]$
+[ec2-user@demo ~]$ sudo su - Akin
+Last login: Tue Jun  6 09:50:45 EDT 2023 on pts/0
+[Akin@demo ~]$
+[Akin@demo ~]$ cd paypal2
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls
+list  mode_modules  READme.md
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls
+list  mode_modules  READme.md
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls -a
+.  ..  .git  .gitignore  list  mode_modules  READme.md
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git add .
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git commit -m ".gitignore created"
+[master 61e39ac] .gitignore created
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .gitignore
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ gti push pay2
+-bash: gti: command not found
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git push pay2
+Username for 'https://github.com': pstjdking2
+Password for 'https://pstjdking2@github.com':
+To https://github.com/TheHeavenlys/Paypal2
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/TheHeavenlys/Paypal2'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[Akin@demo paypal2]$ git pull pay2
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 1.99 KiB | 1.99 MiB/s, done.
+From https://github.com/TheHeavenlys/Paypal2
+ * [new branch]      bug_fixed  -> pay2/bug_fixed
+   624e435..4f602c2  master     -> pay2/master
+You asked to pull from the remote 'pay2', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+[Akin@demo paypal2]$ git pull pay2 master
+From https://github.com/TheHeavenlys/Paypal2
+ * branch            master     -> FETCH_HEAD
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+[Akin@demo paypal2]$ git config pull.rebase false  # merge
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git push pay2
+Username for 'https://github.com': pstjdking2
+Password for 'https://pstjdking2@github.com':
+To https://github.com/TheHeavenlys/Paypal2
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/TheHeavenlys/Paypal2'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[Akin@demo paypal2]$ git pull ...
+fatal: '...' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[Akin@demo paypal2]$ git pull pay2 master
+From https://github.com/TheHeavenlys/Paypal2
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ test.java | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test.java
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git log
+commit 3f4d88d276f2e3a04bbee1e692c23154530b927f (HEAD -> master)
+Merge: 61e39ac 4f602c2
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 10:13:53 2023 -0400
+
+    Merge branch 'master' of https://github.com/TheHeavenlys/Paypal2
+    gitignore created. bug removed
+
+commit 61e39ac9cc6397460e481347d78d7026dbb1b754
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 10:02:26 2023 -0400
+
+    .gitignore created
+
+commit 4f602c2ad63c68be1919a0e1d6559df3fea8148e (pay2/master)
+Merge: edd181e 6e3f7c6
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:25:52 2023 -0500
+
+    Merge pull request #2 from TheHeavenlys/bug_fixed
+
+    Update test.java (bug removed)
+
+commit 6e3f7c6fe77b0a8ce9b1ac43b8cdfb0d469b116f (pay2/bug_fixed)
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:19:09 2023 -0500
+
+    Update test.java (bug removed)
+
+commit edd181eb3cff5e154c309a01c2488b85331e7d15
+Merge: 624e435 9847585
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:11:31 2023 -0500
+
+    Merge pull request #1 from TheHeavenlys/stage
+
+    testing
+
+commit 9847585274f3e11f51eb6d9c469775b12bd1a704 (pay2/stage, stage)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 16:51:01 2023 -0400
+
+    testing
+
+commit 624e435e0fdcbb48f19210095e45ebfd766cfd84
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 16:29:16 2023 -0400
+
+    readme updated
+
+commit 5c0471e01ded813636afb90637c8bb4ac4dd79aa (pay2/development, development)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 15:53:15 2023 -0400
+
+    readme file created
+
+commit cab93fa580852b2b89e4567ebe8f1124e217ccf8 (paypal2/master)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 10:47:44 2023 -0400
+
+    list modified
+
+commit 074ec1d6abaef112d16f6b5234508e71359545d3
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 10:29:40 2023 -0400
+
+    first commit
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git push pay2
+Username for 'https://github.com': pstjdking2
+Password for 'https://pstjdking2@github.com':
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 595 bytes | 595.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/TheHeavenlys/Paypal2
+   4f602c2..3f4d88d  master -> master
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ cd paypal
+-bash: cd: paypal: No such file or directory
+[Akin@demo paypal2]$ cd
+[Akin@demo ~]$ cd paypal
+[Akin@demo paypal]$
+[Akin@demo paypal]$ git log
+commit a231829d388b3422594d0bd531ee594ed1ff3e42 (HEAD -> master)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 12:08:38 2023 -0400
+
+    reame file created
+
+commit 4b620f0de0eeb7ec0433db98f05448cee2817dd9
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Wed May 31 16:37:34 2023 -0400
+
+    list modified
+
+commit b51561d05598ac86b9555b866635ae0a960e4d57
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Wed May 31 16:25:07 2023 -0400
+
+    first commit
+[Akin@demo paypal]$ git remote -v
+pay     https://github.com/TheHeavenlys/Paypal2 (fetch)
+pay     https://github.com/TheHeavenlys/Paypal2 (push)
+paypal  https://github.com/TheHeavenlys/paypal (fetch)
+paypal  https://github.com/TheHeavenlys/paypal (push)
+pl      https://github.com/TheHeavenlys/Paypal2 (fetch)
+pl      https://github.com/TheHeavenlys/Paypal2 (push)
+[Akin@demo paypal]$ cd
+[Akin@demo ~]$ cd paypal2
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git remote -v
+pay2    https://github.com/TheHeavenlys/Paypal2 (fetch)
+pay2    https://github.com/TheHeavenlys/Paypal2 (push)
+paypal2 https://github.com/TheHeavenlys/Paypal2 (fetch)
+paypal2 https://github.com/TheHeavenlys/Paypal2 (push)
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ cd
+[Akin@demo ~]$ cd paypal
+[Akin@demo paypal]$
+[Akin@demo paypal]$ git push paypal
+Username for 'https://github.com': pstjdking2
+Password for 'https://pstjdking2@github.com':
+To https://github.com/TheHeavenlys/paypal
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/TheHeavenlys/paypal'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[Akin@demo paypal]$ git pull paypal master
+From https://github.com/TheHeavenlys/paypal
+ * branch            master     -> FETCH_HEAD
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+[Akin@demo paypal]$ git config pull.rebase false  # merge
+[Akin@demo paypal]$ git pull ...
+fatal: '...' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[Akin@demo paypal]$ git pull paypal master
+From https://github.com/TheHeavenlys/paypal
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+[Akin@demo paypal]$
+[Akin@demo paypal]$ git push paypal
+Username for 'https://github.com': pstjdking2
+Password for 'https://pstjdking2@github.com':
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 2.29 KiB | 2.29 MiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/TheHeavenlys/paypal
+   5d2d44c..3857b21  master -> master
+
